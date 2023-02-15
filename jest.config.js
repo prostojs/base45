@@ -15,5 +15,8 @@ module.exports = {
         'src/**/*.ts',
     ],
     watchPathIgnorePatterns: ['/node_modules/', '/dist/', '/.git/'],
-    testEnvironment: "node"
+    testEnvironment: "node",
+    globals: {
+        __IS_FOR_GLOBAL__: false,
+    }
 }
