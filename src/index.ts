@@ -105,3 +105,15 @@ function getInputString(input: string | Buffer | number[] | Uint8Array): string 
         throw new Error(`Not supported input type for base45 encoding: ${typeof input}`)
     }
 }
+
+export default {
+    encode,
+    decode,
+}
+
+if (__IS_FOR_GLOBAL__) {
+    (globalThis as unknown as { base45: { encode: typeof encode, decode: typeof decode } }).base45 = {
+            encode,
+            decode,
+    }
+}
