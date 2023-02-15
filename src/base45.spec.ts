@@ -25,4 +25,9 @@ describe('base45', () => {
     it('must decode QED8WEX0 to ietf!', () => {
         expect(decode('QED8WEX0').toString()).toBe(('ietf!'))
     })
+    it('encode decode', () => {
+        const bytes = [0, 0, 250, 30, 25, 16, 2, 0, 0, 0, 0, 14, 200, 0, 12]
+        const encoded = encode(bytes)
+        expect(decode(encoded)).toEqual(Buffer.from(bytes))
+    })
 })
