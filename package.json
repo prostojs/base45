@@ -1,12 +1,12 @@
 {
   "name": "base45-mjs",
   "description": "Simple and fast base45 implementation, tree shaking, esm, cjs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "unpkg": "dist/index.cdn.mjs",
-  "jsdelivr": "dist/index.cdn.mjs",
+  "unpkg": "dist/index.cdn.js",
+  "jsdelivr": "dist/index.cdn.js",
   "files": [
     "dist"
   ],
