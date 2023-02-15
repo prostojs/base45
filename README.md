@@ -43,7 +43,7 @@ console.log(decode(encode('Hello!')).toString())
 **unpkg**
 
 ```html
-<script type="application/javascript" src="https://unpkg.com/base45-mjs/dist/index.cdn.js"></script>
+<script type="application/javascript" src="https://unpkg.com/base45-mjs"></script>
 <script>
     console.log(base45.encode('Hello!'))
     console.log(base45.decode(base45.encode('Hello!')).toString())
@@ -53,7 +53,7 @@ console.log(decode(encode('Hello!')).toString())
 **jsdelivr**
 
 ```html
-<script type="application/javascript" src="https://cdn.jsdelivr.net/npm/base45-mjs/dist/index.cdn.js"></script>
+<script type="application/javascript" src="https://cdn.jsdelivr.net/npm/base45-mjs"></script>
 <script>
     console.log(base45.encode('Hello!'))
     console.log(base45.decode(base45.encode('Hello!')).toString())
