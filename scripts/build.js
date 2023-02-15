@@ -10,6 +10,7 @@ build({
     target: 'node16',
     format: 'cjs',
     treeShaking: true,
+    minifySyntax: true,
     define: { __IS_FOR_GLOBAL__: 'false' },
 }).catch(() => process.exit(1))
 
@@ -22,6 +23,7 @@ build({
     target: 'node16',
     format: 'esm',
     treeShaking: true,
+    minifySyntax: true,
     define: { __IS_FOR_GLOBAL__: 'false' },
 }).catch(() => process.exit(1))
 
@@ -35,6 +37,8 @@ build({
     target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
     format: 'esm',
     treeShaking: true,
+    minifySyntax: true,
+    minify: true,
     define: {
         global: 'window',
         __IS_FOR_GLOBAL__: 'false',
@@ -57,6 +61,8 @@ build({
     target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
     format: 'iife',
     treeShaking: true,
+    minifySyntax: true,
+    minify: true,
     define: {
         global: 'window',
         __IS_FOR_GLOBAL__: 'true',
