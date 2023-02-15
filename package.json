@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "rimraf ./dist && tsc --emitDeclarationOnly && node ./scripts/build",
-    "release": "npm test && npm build && npm publish",
+    "release": "npm run test && npm run build && npm publish",
     "test": "jest",
     "test:cov": "jest --runInBand --coverage"
   },
