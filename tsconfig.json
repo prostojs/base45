@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "esModuleInterop": true,
+        "module": "ESNext",
+        "strict": true,
+        "noImplicitAny": true,
+        "declaration": true,
+        "lib": ["ESNext", "DOM"],
+        "moduleResolution": "node",
+        "types": [
+            "jest",
+            "node"
+        ]
+    },
+    "include": ["src"],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}

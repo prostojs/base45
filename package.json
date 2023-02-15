@@ -1,0 +1,45 @@
+{
+  "name": "base45-mjs",
+  "description": "Simple and fast base45 implementation, tree shaking, esm, cjs",
+  "version": "0.0.1",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc --emitDeclarationOnly && node ./scripts/build",
+    "release": "npm test && npm build && npm publish",
+    "test": "jest",
+    "test:cov": "jest --runInBand --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prostojs/base45.git"
+  },
+  "keywords": [
+    "base45"
+  ],
+  "author": "Artem Maltsev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prostojs/base45/issues"
+  },
+  "homepage": "https://github.com/prostojs/base45#readme",
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.13.0",
+    "esbuild": "^0.17.8",
+    "jest": "^29.4.3",
+    "rimraf": "^4.1.2",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.5"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  }
+}
