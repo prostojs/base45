@@ -1,13 +1,5 @@
 const { build } = require('esbuild')
-const { replace } = require('esbuild-plugin-replace');
 const { NodeGlobalsPolyfillPlugin } = require('@esbuild-plugins/node-globals-polyfill')
-
-const replacePluginNoGlobal = replace({
-    '__IS_FOR_GLOBAL__': 'false',
-})
-const replacePluginGlobal = replace({
-    '__IS_FOR_GLOBAL__': 'true',
-})
 
 build({
     entryPoints: ['./src/index.ts'],
@@ -18,7 +10,7 @@ build({
     target: 'node16',
     format: 'cjs',
     treeShaking: true,
-    plugins: [replacePluginNoGlobal]
+    define: { __IS_FOR_GLOBAL__: 'false' },
 }).catch(() => process.exit(1))
 
 build({
@@ -30,7 +22,7 @@ build({
     target: 'node16',
     format: 'esm',
     treeShaking: true,
-    plugins: [replacePluginNoGlobal]
+    define: { __IS_FOR_GLOBAL__: 'false' },
 }).catch(() => process.exit(1))
 
 build({
@@ -43,12 +35,15 @@ build({
     target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
     format: 'esm',
     treeShaking: true,
+    define: {
+        global: 'window',
+        __IS_FOR_GLOBAL__: 'false',
+    },
     plugins: [
         NodeGlobalsPolyfillPlugin({
             buffer: true,
             process: false,
         }),
-        replacePluginNoGlobal,
     ],
 }).catch(() => process.exit(1))
 
@@ -60,14 +55,18 @@ build({
     platform: 'node',
     target: 'browser',
     target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
-    format: 'cjs',
+    format: 'iife',
     treeShaking: true,
+    define: {
+        global: 'window',
+        __IS_FOR_GLOBAL__: 'true',
+    },
     plugins: [
         NodeGlobalsPolyfillPlugin({
             buffer: true,
             process: false,
         }),
-        replacePluginGlobal,
+        // replacePluginGlobal,
     ],
 }).catch(() => process.exit(1))
 

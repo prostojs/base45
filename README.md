@@ -27,3 +27,36 @@ console.log(encode('Hello!'))
 console.log(decode(encode('Hello!')).toString())
 ```
 
+### Browser
+
+**ESM**
+
+```html
+<script type="module">
+import { encode, decode } from 'https://unpkg.com/base45-mjs/dist/index.browser.mjs'
+
+console.log(encode('Hello!'))
+console.log(decode(encode('Hello!')).toString())
+</script>
+```
+
+**unpkg**
+
+```html
+<script type="application/javascript" src="https://unpkg.com/base45-mjs/dist/index.cdn.js"></script>
+<script>
+    console.log(base45.encode('Hello!'))
+    console.log(base45.decode(base45.encode('Hello!')).toString())
+</script>
+```
+
+**jsdelivr**
+
+```html
+<script type="application/javascript" src="https://cdn.jsdelivr.net/npm/base45-mjs/dist/index.cdn.js"></script>
+<script>
+    console.log(base45.encode('Hello!'))
+    console.log(base45.decode(base45.encode('Hello!')).toString())
+</script>
+```
+
